@@ -1,6 +1,7 @@
 const config = require('./knexfile');
 const env = 'development';
 const knex = require('knex')(config[env]);
+//const moment = require('moment');
 
 function getArgument() {
   return process.argv[2]; //
@@ -12,7 +13,7 @@ const displayResult = result => {
     let count = index ++;
     let firstName = info.first_name;
     let lastName = info.last_name;
-    let birthdate = moment(info.birthdate).format('YYYY-MM-DD');
+    let birthdate = info.birthdate;
     console.log(`- ${index}: ${firstName} ${lastName}, born '${birthdate}' `);
   });
 };
@@ -21,9 +22,9 @@ const displayResult = result => {
 knex
 .select("first_name", "last_name", "birthdate")
 .from("famous_people")
-.where({first_name: 'Paul'}).orWhere({last_name: 'Paul'})
+.where({first_name: process.argv[2]})
+.orWhere({last_name: process.argv[2]})
 .then(result => {
-  console.log("SELECT STATEMENT WITH WHERE ...");
   displayResult(result);
 })
 .catch(error => {

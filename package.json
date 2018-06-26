@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "knex": "^0.14.6",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "moment":
   },
   "devDependencies": {
     //
