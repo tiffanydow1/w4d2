@@ -17,10 +17,3 @@ exports.down = function(knex, Promise) {
   ]);
 };
 
-
-
-// exports.down = function(knex, Promise) {
-//   knex.schema.table('milestones', function(table){
-//     knex.schema.dropForeign;
-//   })
-// };
