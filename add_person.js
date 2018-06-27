@@ -24,4 +24,3 @@ knex('famous_people')
 
 
 
-
